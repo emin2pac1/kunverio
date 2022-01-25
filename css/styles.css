@@ -1,0 +1,35 @@
+/* menu page */
+
+ul#measurement-types {
+  list-style-type: none;
+  margin: 0 auto;
+}
+
+ul#measurement-types li {
+  height: auto;
+  margin: 0 0 10px 0; padding: 0;
+  display: inline-block;
+}
+
+ul#measurement-types li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  background: white;
+  padding: 16px 24px;
+  width: 180px;
+  border: 1px solid black;
+}
+
+ul#measurement-types li a:hover {
+  color: white;
+  background: #FDB912;
+}
+
+
+.btn-space
+{
+  margin-right:0.5rem;
+  margin-top:0.5rem;
+
+}
