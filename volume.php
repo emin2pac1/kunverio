@@ -22,7 +22,7 @@ const VLM_IN_LTR = [
     "milliliters" => 0.001
 ];
 
-//solution approach: get KG value and use it as an intermdiate to convert between all supported units
+//solution approach: get liter value and use it as an intermdiate to convert between all supported units
 
 function to_ltr($from_unit,$value){
   switch($from_unit){
@@ -62,10 +62,6 @@ function to_ltr($from_unit,$value){
           return $value * VLM_IN_LTR[$from_unit];
           break;
 
-        case 'imperial_cups':
-         return $value * VLM_IN_LTR[$from_unit];
-         break;
-
         case 'imperial_ounces':
          return $value * VLM_IN_LTR[$from_unit];
          break;
@@ -92,69 +88,66 @@ function to_ltr($from_unit,$value){
 function from_ltr($to_unit,$value){
     switch($to_unit){
         case 'ounces':
-            return $value * VLM_IN_LTR[$to_unit];
+            return $value /VLM_IN_LTR[$to_unit];
             break;
     
             case 'cubic_inches':
-              return $value * VLM_IN_LTR[$to_unit];          
+              return $value / VLM_IN_LTR[$to_unit];          
               break;
     
             case 'cubic_feet':        
-              return $value * VLM_IN_LTR[$to_unit];
+              return $value / VLM_IN_LTR[$to_unit];
               break;
     
             case 'cubic_centimeters':
-              return $value * VLM_IN_LTR[$to_unit];
+              return $value / VLM_IN_LTR[$to_unit];
               break;
     
               case 'cubic_meters':
-                return $value * VLM_IN_LTR[$to_unit];
+                return $value / VLM_IN_LTR[$to_unit];
                 break;
     
             case 'imperial_gallons':
-               return $value * VLM_IN_LTR[$to_unit];
+               return $value / VLM_IN_LTR[$to_unit];
                break;
     
             case 'imperial_quarts':
-              return $value * VLM_IN_LTR[$to_unit];
+              return $value / VLM_IN_LTR[$to_unit];
               break;
     
             case 'imperial_pints':
-              return $value * VLM_IN_LTR[$to_unit];
+              return $value / VLM_IN_LTR[$to_unit];
               break;
       
             case 'imperial_cups':
-              return $value * VLM_IN_LTR[$to_unit];
+              return $value / VLM_IN_LTR[$to_unit];
               break;
     
-            case 'imperial_cups':
-             return $value * VLM_IN_LTR[$to_unit];
-             break;
-    
             case 'imperial_ounces':
-             return $value * VLM_IN_LTR[$to_unit];
+             return $value / VLM_IN_LTR[$to_unit];
              break;
     
             case 'imperial_tablespoons':
-              return $value * VLM_IN_LTR[$to_unit];
+              return $value / VLM_IN_LTR[$to_unit];
               break;
     
             case 'imperial_teaspoons':
-              return $value * VLM_IN_LTR[$to_unit];
+              return $value / VLM_IN_LTR[$to_unit];
               break;
     
             case 'liters':
-              return $value * VLM_IN_LTR[$to_unit];
+              return $value / VLM_IN_LTR[$to_unit];
               break;
     
             case 'milliliters':
-                return $value * VLM_IN_LTR[$to_unit];
+                return $value / VLM_IN_LTR[$to_unit];
                 break;
       
       }
 } 
  
 if($get_post == 'POST'){
+    //sleep(3);
   $fromvalue = $_POST['from_value'];
   $in_ltr = round(to_ltr($from_unit,$value),3);
   $tovalue = round(from_ltr($to_unit,$in_ltr),3);
@@ -198,7 +191,7 @@ if($get_post == 'POST'){
       <option value= "cubic_centimeters"<?php if($from_unit == 'cubic_centimeters') echo " selected" ?>>Cubic Centimeters</option>
       <option value= "cubic_meters"<?php if($from_unit == 'cubic_meters') echo " selected" ?>>Cubic Meters</option>
       <option value= "liters"<?php if($from_unit == 'liters') echo " selected" ?>>Liters</option>
-      <option value= "millileters"<?php if($from_unit == 'millileters') echo " selected" ?>>Millimeters</option>
+      <option value= "milliliters"<?php if($from_unit == 'milliliters') echo " selected" ?>>Millimeters</option>
       <option value= "imperial_ounces"<?php if($from_unit == 'imperial_ounces') echo " selected" ?>>Imperial Ounces</option>
     </select>
   </div>
@@ -218,7 +211,7 @@ if($get_post == 'POST'){
       <option value= "cubic_centimeters"<?php if($to_unit == 'cubic_centimeters') echo " selected" ?>>Cubic Centimeters</option>
       <option value= "cubic_meters"<?php if($to_unit == 'cubic_meters') echo " selected" ?>>Cubic Meters</option>
       <option value= "liters"<?php if($to_unit == 'liters') echo " selected" ?>>Liters</option>
-      <option value= "millileters"<?php if($to_unit == 'millileters') echo " selected" ?>>Millimeters</option>
+      <option value= "milliliters"<?php if($to_unit == 'milliliters') echo " selected" ?>>Millimeters</option>
       <option value= "imperial_ounces"<?php if($to_unit == 'imperial_ounces') echo " selected" ?>>Imperial Ounces</option>
 
     </select>
