@@ -44,10 +44,11 @@ require_once('common/modal.php')
 ?>  
   
 <div id="main-content">
+<?php require_once('common/breadcrumb.php') ?>
+
 
 <h1 class="text-center"><?php echo 'Convert'.' '. $title?></h1>
 
-      <?php require_once('common/breadcrumb.php') ?>
       <?php require_once('common/form_fixed1.php') ?>
 
       <option value= "celsius"<?php if($from_unit == 'celsius') echo " selected" ?>>Celsius</option>

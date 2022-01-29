@@ -76,10 +76,10 @@ require_once('common/modal.php')
 
   
 <div id="main-content">
+<?php require_once('common/breadcrumb.php') ?>
 
 <h1 class="text-center"><?php echo 'Convert'.' '. $title?></h1>
       
-      <?php require_once('common/breadcrumb.php') ?>
       <?php require_once('common/form_fixed1.php') ?>
 
       <option value= "square_inch" <?php if($from_unit == 'square_inch') echo " selected" ?>>Square Inch</option>
@@ -87,7 +87,7 @@ require_once('common/modal.php')
       <option value= "square_yard"<?php if($from_unit == 'square_yard') echo " selected" ?>>Square Yard</option>
       <option value= "square_mile"<?php if($from_unit == 'square_mile') echo " selected" ?>>Square Mile</option>
       <option value= "square_millimeter"<?php if($from_unit == 'square_millimeter') echo " selected" ?>>Square Millimeter</option>
-      <option value= "square_centimeter"<?php if($from_unit == 'square_centimeter') echo " selected" ?>>Square Cenimeter</option>
+      <option value= "square_centimeter"<?php if($from_unit == 'square_centimeter') echo " selected" ?>>Square Centimeter</option>
       <option value= "square_meter"<?php if($from_unit == 'square_meter') echo " selected" ?>>Square Meter</option>
       <option value= "square_kilometer"<?php if($from_unit == 'square_kilometer') echo " selected" ?>>Square Kilometer</option>
 
@@ -98,7 +98,7 @@ require_once('common/modal.php')
       <option value= "square_yard"<?php if($to_unit == 'square_yard') echo " selected" ?>>Square Yard</option>
       <option value= "square_mile"<?php if($to_unit == 'square_mile') echo " selected" ?>>Square Mile</option>
       <option value= "square_millimeter"<?php if($to_unit == 'square_millimeter') echo " selected" ?>>Square Millimeter</option>
-      <option value= "square_centimeter"<?php if($to_unit == 'square_centimeter') echo " selected" ?>>Square Cenimeter</option>
+      <option value= "square_centimeter"<?php if($to_unit == 'square_centimeter') echo " selected" ?>>Square Centimeter</option>
       <option value= "square_meter"<?php if($to_unit == 'square_meter') echo " selected" ?>>Square Meter</option>
       <option value= "square_kilometer"<?php if($to_unit == 'square_kilometer') echo " selected" ?>>Square Kilometer</option>
 

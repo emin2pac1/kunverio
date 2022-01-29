@@ -1,7 +1,7 @@
  <!-- Part Start -->
 
  </select>
-      <label for="floatingSelectGrid" class="label-lg">Choose Unit</label>
+      <label for="floatingSelectGrid" class="label-lg">Current Unit</label>
     </div>
   </div>
 

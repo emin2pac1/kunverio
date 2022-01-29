@@ -75,10 +75,9 @@ require_once('common/modal.php')
 ?>  
   
 <div id="main-content">
-
+<?php require_once('common/breadcrumb.php') ?>
 <h1 class="text-center"><?php echo 'Convert'.' '. $title?></h1>
 
-      <?php require_once('common/breadcrumb.php') ?>
       <?php require_once('common/form_fixed1.php') ?>
 
       <option value= "inch" <?php if($from_unit == 'inch') echo " selected" ?>>Inch</option>
@@ -86,7 +85,7 @@ require_once('common/modal.php')
       <option value= "yard"<?php if($from_unit == 'yard') echo " selected" ?>>Yard</option>
       <option value= "mile"<?php if($from_unit == 'mile') echo " selected" ?>>Mile</option>
       <option value= "millimeter"<?php if($from_unit == 'millimeter') echo " selected" ?>>Millimeter</option>
-      <option value= "centimeter"<?php if($from_unit == 'centimeter') echo " selected" ?>>Cenimeter</option>
+      <option value= "centimeter"<?php if($from_unit == 'centimeter') echo " selected" ?>>Centimeter</option>
       <option value= "meter"<?php if($from_unit == 'meter') echo " selected" ?>>Meter</option>
       <option value= "kilometer"<?php if($from_unit == 'kilometer') echo " selected" ?>>Kilometer</option>
       
@@ -97,7 +96,7 @@ require_once('common/modal.php')
       <option value= "yard"<?php if($to_unit == 'yard') echo " selected" ?>>Yard</option>
       <option value= "mile"<?php if($to_unit == 'mile') echo " selected" ?>>Mile</option>
       <option value= "millimeter"<?php if($to_unit == 'millimeter') echo " selected" ?>>Millimeter</option>
-      <option value= "centimeter"<?php if($to_unit == 'centimeter') echo " selected" ?>>Cenimeter</option>
+      <option value= "centimeter"<?php if($to_unit == 'centimeter') echo " selected" ?>>Centimeter</option>
       <option value= "meter"<?php if($to_unit == 'meter') echo " selected" ?>>Meter</option>
       <option value= "kilometer"<?php if($to_unit == 'kilometer') echo " selected" ?>>Kilometer</option>
 

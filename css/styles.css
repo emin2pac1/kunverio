@@ -46,7 +46,7 @@ footer{
 }
 
 .gutter{
-  margin-top:8% !important;
+  margin-top:5% !important;
   margin-bottom:5% !important;
 
 }
@@ -65,4 +65,21 @@ footer{
   color: #fff;
   background-color: #737474 !important;
   border-color: #737474 !important;
+}
+
+.home-btn {
+  color: #fff;
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  border-radius: 25% !important;
+
+}
+
+.home-btn-act {
+  margin: 5% 0;
+  color: #fff;
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  border-radius: 25% !important;
+
 }
