@@ -15,8 +15,8 @@
         <!-- Protect against empty submission -->
         <script>
         $('.btn-primary').prop('disabled', true);
-        $('#floatingInputGrid').change(function() {
-            var from = $('#floatingInputGrid').val();
+        $('.listen').change(function() {
+            var from = $('.listen').val();
             if (from == '') {
                 $('.btn-primary').prop('disabled', true);
             } else {
