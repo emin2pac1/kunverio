@@ -1,6 +1,7 @@
 <?php
+error_reporting(0);
 require_once('common/header.php');
-
+//global $tovalue;
 $get_post = $_SERVER['REQUEST_METHOD'];
 $tovalue = '';
 $fromvalue = '';
@@ -76,6 +77,8 @@ if($get_post == 'POST'){
   $in_meter = round(to_meter($from_unit,$value),3);
   $tovalue = round(from_meter($to_unit,$in_meter),3);
 }
+//settype($tovalue,"float");
+
   ?>
 <?php 
 ?>
@@ -90,7 +93,7 @@ if($get_post == 'POST'){
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p><?php if (isset($tovalue)){ echo $tovalue.' '.ucfirst($to_unit); } ?></p>
+          <p><?php settype($tovalue,'float'); if ($tovalue){ echo $tovalue.' '.ucfirst($to_unit); } else{echo "Looks like you haven't entered a value";} ?></p>
         </div>
         <div class="modal-footer">  
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -122,7 +125,7 @@ if($get_post == 'POST'){
 <div class="row g-2 justify-content-center">
   <div class="col-sm-3">
     <div class="form-floating">
-    <input type="text" name="from_value" value="<?php echo $fromvalue?>" class="form-control form-control-sm" id="floatingInputGrid" placeholder="" required>
+    <input type="text" name="from_value" value="<?php echo $fromvalue?>" class="form-control form-control-sm" id="floatingInputGrid" placeholder="">
       <label for="floatingInputGrid" class="label-lg">Enter a value</label>
     </div>
   </div>
