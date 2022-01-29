@@ -1,4 +1,6 @@
 <?php
+require_once('common/header.php');
+
 $get_post = $_SERVER['REQUEST_METHOD'];
 $tovalue = '';
 $fromvalue = '';
@@ -69,38 +71,64 @@ function from_meter($to_unit,$value){
 } 
  
 if($get_post == 'POST'){
+
   $fromvalue = $_POST['from_value'];
   $in_meter = round(to_meter($from_unit,$value),3);
   $tovalue = round(from_meter($to_unit,$in_meter),3);
 }
+  ?>
+<?php 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-  <title>Kunverio: Length</title>
-</head>
-<body>
+<!-- Using BS Modal -->
+<?php  ?>
+   <div class="modal" tabindex="-1" id="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Result</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><?php if (isset($tovalue)){ echo $tovalue.' '.ucfirst($to_unit); } ?></p>
+        </div>
+        <div class="modal-footer">  
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
 <div id="main-content" style>
 
-<h1>Convert Length</h1>
+<h1 class="text-center">Convert Length</h1>
+
+
 <?php
  !isset($_POST['from_unit']) ? $_POST['from_unit'] ='inch': $from_unit = $_POST['from_unit'];   
  !isset($_POST['to_unit']) ? $_POST['to_unit'] ='inch': $to_unit = $_POST['to_unit'];   
 
- ?>
-<form action="" method="post">
-  
-  <div class="entry">
-    <label>From:</label>&nbsp;
-    <input type="text" name="from_value" value="<?php echo $fromvalue?>" />&nbsp;
-    <select name="from_unit">
+ ?> 
+ <div class="container">
+<!-- twbs -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb gutter">
+    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Length</li>
+  </ol>
+</nav>
+<form action="" method="POST">
+<div class="row g-2 justify-content-center">
+  <div class="col-sm-3">
+    <div class="form-floating">
+    <input type="text" name="from_value" value="<?php echo $fromvalue?>" class="form-control form-control-sm" id="floatingInputGrid" placeholder="" required>
+      <label for="floatingInputGrid" class="label-lg">Enter a value</label>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-floating">
+      <select class="form-select form-control-sm" id="floatingSelectGrid" aria-label="Choose Unit" name="from_unit">
 
       <option value= "inch" <?php if($from_unit == 'inch') echo " selected" ?>>Inch</option>
       <option value= "feet" <?php if($from_unit == 'feet') echo " selected" ?>>Feet</option>
@@ -111,13 +139,15 @@ if($get_post == 'POST'){
       <option value= "meter"<?php if($from_unit == 'meter') echo " selected" ?>>Meter</option>
       <option value= "kilometer"<?php if($from_unit == 'kilometer') echo " selected" ?>>Kilometer</option>
 
-    </select>
+      </select>
+      <label for="floatingSelectGrid" class="label-lg">Choose Unit</label>
+    </div>
   </div>
-  
-  <div class="entry">
-    <label>To:</label>&nbsp;
-    <input type="text" name="to_value" value="<?php echo $tovalue ?>" />&nbsp;
-    <select name="to_unit">
+
+
+  <div class="col-sm-3">
+    <div class="form-floating">
+    <select class="form-select  form-control-sm" id="floatingSelectGrid2" aria-label="Choose Unit" name="to_unit">
 
       <option value= "inch" <?php if($to_unit == 'inch') echo " selected" ?>>Inch</option>
       <option value= "feet" <?php if($to_unit == 'feet') echo " selected" ?>>Feet</option>
@@ -129,17 +159,19 @@ if($get_post == 'POST'){
       <option value= "kilometer"<?php if($to_unit == 'kilometer') echo " selected" ?>>Kilometer</option>
 
     </select>
-    
+      <label for="floatingSelectGrid2" class="label-lg">Unit to be converted to</label>
+    </div>
   </div>
-  
-  <input type="submit" value="Submit" />
+  <input type="submit" value="Submit" class="btn btn-primary col-sm-3" data-bs-toggle="modal" data-bs-target="#modal">
+</div>
+
 </form>
+<div class="gutter-sm"></div>
 
-<br />
-<a href="index.php">Return to menu</a>
+<div class="gutter"></div>
 
+</div>
 </div>
 
 
-</body>
-</html>
+<?php require_once('common/footer.php') ?>

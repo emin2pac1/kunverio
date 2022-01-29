@@ -26,11 +26,8 @@ const VLM_IN_LTR = [
 
 function to_ltr($from_unit,$value){
   switch($from_unit){
-    case 'ounces':
-        return $value * VLM_IN_LTR[$from_unit];
-        break;
-
-        case 'cubic_inches':
+    
+          case 'cubic_inches':
           return $value * VLM_IN_LTR[$from_unit];          
           break;
 
@@ -87,10 +84,7 @@ function to_ltr($from_unit,$value){
 
 function from_ltr($to_unit,$value){
     switch($to_unit){
-        case 'ounces':
-            return $value /VLM_IN_LTR[$to_unit];
-            break;
-    
+        
             case 'cubic_inches':
               return $value / VLM_IN_LTR[$to_unit];          
               break;
