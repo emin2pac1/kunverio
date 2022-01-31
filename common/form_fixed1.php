@@ -3,7 +3,7 @@
 <div class="row g-2 justify-content-center">
   <div class="col-sm-3">
     <div class="form-floating">
-    <input type="number" step="0.01" name="from_value" value="<?php echo $fromvalue?>" class="form-control form-control-sm listen" id="floatingInputGrid" placeholder="">
+    <input type="number" step="0.001" min="0.001" name="from_value" value="<?php echo $fromvalue?>" class="form-control form-control-sm listen" id="floatingInputGrid" placeholder="">
       <label for="floatingInputGrid" class="label-lg">Enter a measurement</label>
     </div>
   </div>
